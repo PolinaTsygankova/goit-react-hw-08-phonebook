@@ -19,34 +19,31 @@ export const MainTitle = styled.h1`
     padding-bottom: 5px;
   }
   &:before {
-    width: 28px;
-    height: 5px;
+    width: 30px;
+    height: 7px;
     display: block;
     content: '';
     position: absolute;
     bottom: 3px;
     left: 50%;
     margin-left: -14px;
-    background-color: #b80000;
+    background-color: #850000;
   }
   &:after {
-    width: 100px;
-    height: 1px;
+    width: 150px;
+    height: 1.5px;
     display: block;
     content: '';
     position: relative;
-    margin-top: 25px;
+    margin-top: 26px;
     left: 50%;
-    margin-left: -50px;
-    background-color: #b80000;
+    margin-left: -75px;
+    background-color: #850000;
   }
 `;
 
 export const MainDiv = styled.div`
-  overflow-y: hidden;
-  /* width: 100vw; */
-  /* height: 100vh; */
-  /* background: #eee; */
+  background: #eee;
   display: flex;
   justify-content: center;
   flex-direction: column;

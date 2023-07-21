@@ -1,29 +1,27 @@
+// App.js
+import { Routes, Route } from 'react-router-dom';
 import { useEffect } from 'react';
-import { ContactForm } from './ContactForm/ContactForm';
-import { Filter } from './Filter/Filter';
-import { ContactList } from './ContactList/ContactList';
-import { MainTitle, MainDiv, ContactTitle, Loader } from './App.styled';
-import { useDispatch, useSelector } from 'react-redux/es/exports';
-import { getError, getIsLoading } from 'redux/selectors';
+import { useDispatch } from 'react-redux/es/exports';
 import { fetchContacts } from './../redux/operations';
+import { Contacts } from '../pages/Contacts/Contacts';
+import { Layout } from './Layout/Layout';
+import { Home } from './../pages/Home/Home';
 
 export function App() {
   const dispatch = useDispatch();
-  const isLoading = useSelector(getIsLoading);
-  const error = useSelector(getError);
 
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
 
   return (
-    <MainDiv>
-      <MainTitle>Phonebook</MainTitle>
-      <ContactForm />
-      <ContactTitle>Contacts</ContactTitle>
-      <Filter />
-      {isLoading && !error && <Loader />}
-      <ContactList />
-    </MainDiv>
+    <>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="contacts" element={<Contacts />} />
+        </Route>
+      </Routes>
+    </>
   );
 }

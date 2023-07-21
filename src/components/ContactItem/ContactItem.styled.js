@@ -13,7 +13,7 @@ export const DeleteBtn = styled.button`
   background-color: rgba(51, 51, 51, 0.05);
   border-radius: 8px;
   border-width: 0;
-  color: rgb(186, 0, 0);
+  color: #850000;
   cursor: pointer;
   display: inline-block;
   font-family: 'Haas Grot Text R Web', 'Helvetica Neue', Helvetica, Arial,

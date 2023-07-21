@@ -18,7 +18,7 @@ export const Title = styled.p`
     bottom: 0;
     height: 5px;
     width: 55px;
-    background-color: rgb(186, 0, 0);
+    background-color: #850000;
   }
   &:after {
     content: '';
@@ -28,7 +28,7 @@ export const Title = styled.p`
     height: 1px;
     width: 100%;
     max-width: 255px;
-    background-color: #333;
+    background-color: #850000;
   }
 `;
 

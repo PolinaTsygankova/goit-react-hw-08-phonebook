@@ -93,9 +93,9 @@ export const Submitbtn = styled.button`
   background-color: #fff;
   border-radius: 24px;
   border-style: none;
-  box-shadow: 1px 5px 34px -5px rgba(184, 0, 0, 0.81);
-  -webkit-box-shadow: 1px 5px 34px -5px rgba(184, 0, 0, 0.81);
-  -moz-box-shadow: 1px 5px 34px -5px rgba(184, 0, 0, 0.81);
+  box-shadow: 1px 5px 43px -3px #850000;
+  -webkit-box-shadow: 1px 5px 43px -3px #850000;
+  -moz-box-shadow: 1px 5px 43px -3px #850000;
   box-sizing: border-box;
   color: #3c4043;
   cursor: pointer;
@@ -132,7 +132,7 @@ export const Submitbtn = styled.button`
     /* box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%),
       0 8px 12px 6px rgb(60 64 67 / 15%); */
 
-    box-shadow: rgb(184, 0, 0);
+    box-shadow: #850000;
     outline: none;
   }
 
@@ -146,9 +146,9 @@ export const Submitbtn = styled.button`
   }
 
   &:not(:disabled):hover {
-    box-shadow: 1px 5px 34px 8px rgba(184, 0, 0, 0.81);
-    -webkit-box-shadow: 1px 5px 34px 8px rgba(184, 0, 0, 0.81);
-    -moz-box-shadow: 1px 5px 34px 8px rgba(184, 0, 0, 0.81);
+    box-shadow: 1px 5px 34px 8px #850000;
+    /* -webkit-box-shadow: 1px 5px 34px 8px rgba(184, 0, 0, 0.81);
+    -moz-box-shadow: 1px 5px 34px 8px rgba(184, 0, 0, 0.81); */
   }
 
   &:not(:disabled):focus {
