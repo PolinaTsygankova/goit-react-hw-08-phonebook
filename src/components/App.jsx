@@ -1,11 +1,12 @@
-// App.js
 import { Routes, Route } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux/es/exports';
 import { fetchContacts } from './../redux/operations';
-import { Contacts } from '../pages/Contacts/Contacts';
-import { Layout } from './Layout/Layout';
-import { Home } from './../pages/Home/Home';
+// import { Contacts } from '../pages/Contacts/Contacts';
+// import { Layout } from './Layout/Layout';
+// import { Home } from './../pages/Home/Home';
+import { Login } from './../pages/Login/Login';
+import { Register } from '../pages/Register/Register';
 
 export function App() {
   const dispatch = useDispatch();
@@ -17,10 +18,13 @@ export function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+
+        {/* <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="contacts" element={<Contacts />} />
-        </Route>
+        </Route> */}
       </Routes>
     </>
   );

@@ -9,7 +9,6 @@ export function ContactForm() {
   const [number, setNumber] = useState('');
   const dispatch = useDispatch();
   const contacts = useSelector(getContacts);
-  // console.log(contacts);
 
   function handleInput(e) {
     const { name, value } = e.target;
