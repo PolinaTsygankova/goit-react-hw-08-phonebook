@@ -3,8 +3,8 @@ import {
   HeaderStyled,
   Container,
   StyledNavLink,
-  Text,
-  Button,
+  // Text,
+  // Button,
 } from './Header.styled';
 
 export const Header = () => {
@@ -12,11 +12,15 @@ export const Header = () => {
     <HeaderStyled>
       <Container>
         <StyledNavLink to="/">Home</StyledNavLink>
-        <StyledNavLink to="/contacts">Contacts</StyledNavLink>
+
+        {/* <StyledNavLink to="/contacts">Contacts</StyledNavLink> */}
       </Container>
       <Container>
-        <Text>Welcome, User!</Text>
-        <Button>Log out</Button>
+        {/* <Text>Welcome, User!</Text>
+        <Button>Log out</Button> */}
+
+        <StyledNavLink to="/login">Log In</StyledNavLink>
+        <StyledNavLink to="/register">Register</StyledNavLink>
       </Container>
     </HeaderStyled>
   );

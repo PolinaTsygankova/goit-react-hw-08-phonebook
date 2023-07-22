@@ -26,10 +26,11 @@ export const StyledNavLink = styled(NavLink)`
   line-height: 1.5em;
   text-shadow: none;
   transition: text-shadow 0.2s ease-in-out;
+  margin-right: 15px;
 
-  &:first-child {
+  /* &:first-child {
     margin-right: 15px;
-  }
+  } */
 
   &:hover {
     text-shadow: 0px 0px 20px #fff;

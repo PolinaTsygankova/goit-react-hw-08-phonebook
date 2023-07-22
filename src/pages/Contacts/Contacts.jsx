@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux/es/exports';
-import { getError, getIsLoading } from 'redux/selectors';
+import { getError, getIsLoading } from 'redux/contacts/selectors';
 import { ContactForm } from '../../components/ContactForm/ContactForm';
 import { Filter } from '../../components/Filter/Filter';
 import { ContactList } from '../../components/ContactList/ContactList';
