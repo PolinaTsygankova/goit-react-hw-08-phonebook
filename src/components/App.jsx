@@ -9,38 +9,37 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import PublicRoute from './PublicRoute';
 import PrivateRoute from './PrivateRoute';
+import { getIsRefreshing } from './../redux/auth/selectors';
+import { useSelector } from 'react-redux/es/hooks/useSelector';
 
 export function App() {
   const dispatch = useDispatch();
+  const isRefreshing = useSelector(getIsRefreshing);
 
   useEffect(() => {
     dispatch(fetchCurrentUser());
   }, [dispatch]);
 
   return (
-    <>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route element={<PublicRoute />}>
-            <Route path="/" element={<Home />} />
-          </Route>
+    !isRefreshing && (
+      <>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route element={<PublicRoute />}>
+              <Route path="/" element={<Home />} />
+            </Route>
 
-          <Route element={<PrivateRoute redirectTo="/login" />}>
-            <Route path="contacts" element={<Contacts />} />
-          </Route>
+            <Route element={<PrivateRoute redirectTo="/login" />}>
+              <Route path="contacts" element={<Contacts />} />
+            </Route>
 
-          <Route element={<PublicRoute redirectTo="/contacts" restricted />}>
-            <Route exact path="login" element={<Login />} />
-            <Route path="register" element={<Register />} />
+            <Route element={<PublicRoute redirectTo="/contacts" restricted />}>
+              <Route exact path="login" element={<Login />} />
+              <Route path="register" element={<Register />} />
+            </Route>
           </Route>
-        </Route>
-      </Routes>
-    </>
+        </Routes>
+      </>
+    )
   );
 }
-// <Route path="/" element={<Layout />}></Route>
-// <Route index element={<Home />} />
-//    <Route exact path="login" element={<Login />} />
-// <Route path="register" element={<Register />} />
-// <Route path="contacts" element={<Contacts />} />
-// </Route>
