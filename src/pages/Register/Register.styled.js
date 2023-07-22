@@ -23,7 +23,7 @@ export const LoginFormContainer = styled.div`
 
 export const LoginForm = styled.form`
   left: 10%;
-  top: 15%;
+  top: 18%;
   z-index: 1;
   content: '';
   position: absolute;

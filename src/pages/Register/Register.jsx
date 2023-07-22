@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { register } from 'redux/auth/operations';
 import {
   LoginContainer,
   LoginForm,
@@ -12,6 +14,7 @@ import {
 } from './Register.styled';
 
 export const Register = () => {
+  const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -31,8 +34,8 @@ export const Register = () => {
   function handleSumbit(e) {
     e.preventDefault();
 
-    //dispATCH
-    console.log({ name, email, password });
+    dispatch(register({ name, email, password }));
+
     setName('');
     setEmail('');
     setPassword('');

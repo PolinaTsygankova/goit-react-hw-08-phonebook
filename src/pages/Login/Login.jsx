@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { login } from 'redux/auth/operations';
 import {
   LoginContainer,
   LoginForm,
@@ -12,25 +14,26 @@ import {
 } from './Login.styled';
 
 export const Login = () => {
-  const [name, setName] = useState('');
+  const dispatch = useDispatch();
   const [email, setEmail] = useState('');
-  // const [password, setPassword] = useState('');
+  const [password, setPassword] = useState('');
 
   function handleInput(e) {
     const { name, value } = e.target;
 
-    if (name === 'name') {
-      setName(value);
-    } else if (name === 'email') {
+    if (name === 'email') {
       setEmail(value);
+    } else if (name === 'password') {
+      setPassword(value);
     }
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-    //dispatch
-    console.log({ name, email });
-    setName('');
+
+    dispatch(login({ email, password }));
+
+    setPassword('');
     setEmail('');
   }
 
@@ -39,17 +42,6 @@ export const Login = () => {
       <LoginForm onSubmit={handleSubmit}>
         <Title>Log In</Title>
 
-        <Text>Name</Text>
-        <Label>
-          <input
-            type="text"
-            name="name"
-            required
-            value={name}
-            onChange={handleInput}
-          />
-        </Label>
-
         <Text>Email</Text>
         <Label>
           <input
@@ -57,6 +49,17 @@ export const Login = () => {
             name="email"
             required
             value={email}
+            onChange={handleInput}
+          />
+        </Label>
+
+        <Text>Password</Text>
+        <Label>
+          <input
+            type="password"
+            name="password"
+            required
+            value={password}
             onChange={handleInput}
           />
         </Label>

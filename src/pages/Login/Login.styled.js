@@ -25,7 +25,7 @@ export const LoginForm = styled.form`
   -webkit-box-shadow: 0px 0px 14px 0px #434343;
   box-shadow: 0px 0px 14px 0px #434343;
   left: 10%;
-  top: 15%;
+  top: 22%;
   z-index: 1;
   content: '';
   position: absolute;

@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux/es/exports';
 import { fetchContacts } from '../redux/contacts/operations';
-// import { Contacts } from '../pages/Contacts/Contacts';
+import { Contacts } from '../pages/Contacts/Contacts';
 import { Layout } from './Layout/Layout';
 import { Home } from './../pages/Home/Home';
 import { Login } from './../pages/Login/Login';
@@ -22,7 +22,7 @@ export function App() {
           <Route index element={<Home />} />
           <Route exact path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
-          {/* <Route path="contacts" element={<Contacts />} /> */}
+          <Route path="contacts" element={<Contacts />} />
         </Route>
       </Routes>
     </>
