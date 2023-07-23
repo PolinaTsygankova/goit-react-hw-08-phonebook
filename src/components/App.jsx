@@ -11,6 +11,7 @@ import PublicRoute from './PublicRoute';
 import PrivateRoute from './PrivateRoute';
 import { getIsRefreshing } from './../redux/auth/selectors';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
+import LoadingPage from './LoadingPage/LoadingPage';
 
 export function App() {
   const dispatch = useDispatch();
@@ -20,9 +21,7 @@ export function App() {
     dispatch(fetchCurrentUser());
   }, [dispatch]);
 
-  return isRefreshing ? (
-    <h1>Loading...</h1>
-  ) : (
+  return (
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -30,14 +29,22 @@ export function App() {
             <Route path="/" element={<Home />} />
           </Route>
 
-          <Route element={<PrivateRoute redirectTo="/login" />}>
-            <Route path="contacts" element={<Contacts />} />
-          </Route>
+          {isRefreshing ? (
+            <Route index element={<LoadingPage />} />
+          ) : (
+            <>
+              <Route element={<PrivateRoute redirectTo="/login" />}>
+                <Route path="contacts" element={<Contacts />} />
+              </Route>
 
-          <Route element={<PublicRoute redirectTo="/contacts" restricted />}>
-            <Route exact path="login" element={<Login />} />
-            <Route path="register" element={<Register />} />
-          </Route>
+              <Route
+                element={<PublicRoute redirectTo="/contacts" restricted />}
+              >
+                <Route exact path="login" element={<Login />} />
+                <Route path="register" element={<Register />} />
+              </Route>
+            </>
+          )}
         </Route>
       </Routes>
     </>
