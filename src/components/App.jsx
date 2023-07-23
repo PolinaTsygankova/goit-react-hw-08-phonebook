@@ -20,26 +20,26 @@ export function App() {
     dispatch(fetchCurrentUser());
   }, [dispatch]);
 
-  return (
-    !isRefreshing && (
-      <>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route element={<PublicRoute />}>
-              <Route path="/" element={<Home />} />
-            </Route>
-
-            <Route element={<PrivateRoute redirectTo="/login" />}>
-              <Route path="contacts" element={<Contacts />} />
-            </Route>
-
-            <Route element={<PublicRoute redirectTo="/contacts" restricted />}>
-              <Route exact path="login" element={<Login />} />
-              <Route path="register" element={<Register />} />
-            </Route>
+  return isRefreshing ? (
+    <p>Loading...</p>
+  ) : (
+    <>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route element={<PublicRoute />}>
+            <Route path="/" element={<Home />} />
           </Route>
-        </Routes>
-      </>
-    )
+
+          <Route element={<PrivateRoute redirectTo="/login" />}>
+            <Route path="contacts" element={<Contacts />} />
+          </Route>
+
+          <Route element={<PublicRoute redirectTo="/contacts" restricted />}>
+            <Route exact path="login" element={<Login />} />
+            <Route path="register" element={<Register />} />
+          </Route>
+        </Route>
+      </Routes>
+    </>
   );
 }
